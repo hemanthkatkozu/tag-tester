@@ -1,0 +1,19 @@
+terraform {
+  required providers {
+     aws = {
+       source = "hashicorp/aws"
+       version = "~3.27"
+      }
+    }
+  }
+provider "aws" {
+  region = "ap-south-1"
+}
+
+resources "aws_instances" "demo-instance" {
+  ami = "ami-0756a1c858554433i"
+  instance_type = "t2.micro"
+  tags {
+     Name = "Sample-server"
+    }
+   }
